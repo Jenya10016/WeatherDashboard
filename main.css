@@ -133,9 +133,30 @@ weather-forecast .weather-forecast-item .day .temp{
 }
 
 @media only screen and  (max-width:730px) {
-    .future-forcast{
+    .container{
+        padding:20px;       
+    }
+    
+    .future-forecast{
         justify-content:start;
         align-items: none;
         overflow-y: scroll;
     }
+
+.future-forecast .today .temp{
+    font-size: 50px;
+    }
+
+.date-container #am-pm{
+        font-size: 20px;
+}
+
+.date-container .date{
+    font-size: 20px;
+}
+
+.place-container{
+    text-align: end;
+    margin-top: 15px;
+}
 }
