@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    background-color: white;
+    color: #fff;
+}
+
+header {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+
+.green {
+    background-color: green;
+}
+.yellow {
+    background-color: yellow;
+}
+
+.orange {
+    background-color: orange
+}
+
+.red {
+    background-color: red;
+}
+
+.card {
+    background-color: black;
+    margin: 10px;
+}
+
+.city-btn {
+    width: 100%;
+}
+
+footer {
+    background-color: black;
+    color: #fff;
+    padding: 10px;
+    margin-top: 20px;
+    position: fixed;
+    height: 80px;
+    bottom: 0;
+    width: 100%;
+}
