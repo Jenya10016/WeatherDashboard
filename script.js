@@ -2,21 +2,21 @@
 const getLocUrl = 'https://api.openweathermap.org/geo/1.0/direct?appid=9094815cf69de4af2049665b33b7f363&'
 // url for forecast api
 const baseUrl = 'https://api.openweathermap.org/data/2.5/onecall?&appid=9094815cf69de4af2049665b33b7f363&units=imperial&include=current'
-// target form 
+// form 
 const formEl = $('#city-form');
-// target city name div
+// city name
 const cityNameEl = $('#cityName');
-// target weather card element
+// card
 let weatherCardsEl = $('#weatherCards');
-// target h2 with id of currDay
+// current day
 let currDayEl = $('#currDay');
-// target current conditions element
+// current 
 let currConditionsEl = $('#currConditions');
-// target history element for previous cities
+// history
 let historyEl = $('#history');
-// create empty cities array
+// cities
 let cities = [];
-// get stored cities from local storage
+// cities from local storage
 let storedCities = ''
 let q = '';
 
@@ -46,10 +46,10 @@ function titleCase(str) {
   return splitStr.join(' '); 
 }
 
-// program to convert first letter of a string to uppercase
+// first letter of a string to uppercase
 function capitalizeFirstLetter(str) {
 
-  // converting first letter to uppercase
+  // Uppercase
   const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
 
   return capitalized;
@@ -62,8 +62,8 @@ function formHandler(event) {
   weatherCardsEl.text('');
   currConditionsEl.removeClass('border border-dark border-2')
   
-  // check to see if the submit came from a button or the input form
-  // if a button get the data attribute, q else get it from the form
+  // check submit button
+
   if (formEl.attr('data-q')) {
     q = titleCase(formEl.attr('data-q'));
     // clear the button attribute so it will not persist if the 
@@ -76,20 +76,18 @@ function formHandler(event) {
   let cityRequestUrl = `${getLocUrl}&q=${q}`;
   fetch(cityRequestUrl)
     .then(function (response) {
-      // When this request is made, get the response and check to see if it went well
-      // if so, take the data and decode it so that we humans can read it
+      // response
       return response.json();
     })
     .then(function (data) {
       let lat = data[0].lat;
       let lon = data[0].lon;
       
-      //build the url
+      //url
       let requestUrl = `${baseUrl}&lon=${lon}&lat=${lat}`;
       fetch(requestUrl)
         .then(function (response) {
-          // When this request is made, get the response and check to see if it went well
-          // if so, take the data and decode it so that we humans can read it
+          // request and resonse 
           return response.json();
         })
         .then(function (data) {
@@ -125,8 +123,7 @@ function formHandler(event) {
             <b>UV Index:</b> <span class="${uviColor} text-white px-2">${data.current.uvi}</span>`
           );
           currConditionsEl.addClass('border border-dark border-2')
-          // add city name to the page
-          //cityNameEl.text('test');
+          // city
           
           cityNameEl.text(`${q} (${moment().format("MM/D/YYYY")})`);
           currConditionsEl.append(currWeather);
@@ -146,7 +143,7 @@ function formHandler(event) {
                 </div>
               </div>` 
             );
-            // clear input form
+            // clear form
             $('input[name="city-input"]').val('');
             //append weatherBlock to Weather cards element
             weatherCardsEl.append(weatherBlock);
