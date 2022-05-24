@@ -15,7 +15,7 @@
 
 This is an app which allows the user to enter a city location and receive current weather results.
 
-<a href="https://jenya10016.github.io/EmployeeTracker>Click here for github repository</a>
+<a href="https://jenya10016.github.io/Weather/">Click here for github repository</a>
 
 ## Usage
 
